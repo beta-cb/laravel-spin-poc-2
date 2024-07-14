@@ -88,12 +88,12 @@ services:
         - "traefik.http.services.my-php-app.loadbalancer.server.scheme=http"
         # Health check
         - "traefik.http.services.my-php-app.loadbalancer.healthcheck.path=/ping"
-        - "traefik.http.services.my-php-app.loadbalancer.healthcheck.interval=100ms"
-        - "traefik.http.services.my-php-app.loadbalancer.healthcheck.timeout=75ms"
+        - "traefik.http.services.my-php-app.loadbalancer.healthcheck.interval=2000ms"
+        - "traefik.http.services.my-php-app.loadbalancer.healthcheck.timeout=1000ms"
         - "traefik.http.services.my-php-app.loadbalancer.healthcheck.scheme=http"
         # Timeout settings
-        - "traefik.http.services.my-php-app.loadbalancer.server.forwardingTimeouts.readTimeout=300s"
-        - "traefik.http.services.my-php-app.loadbalancer.server.forwardingTimeouts.writeTimeout=300s"
+        # - "traefik.http.services.my-php-app.loadbalancer.server.forwardingTimeouts.readTimeout=300s"
+        # - "traefik.http.services.my-php-app.loadbalancer.server.forwardingTimeouts.writeTimeout=300s"
         # - "traefik.http.services.my-php-app.loadbalancer.server.idleTimeout=300s"
 
 configs:
