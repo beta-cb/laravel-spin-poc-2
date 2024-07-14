@@ -94,7 +94,7 @@ services:
         # Timeout settings
         - "traefik.http.services.my-php-app.loadbalancer.server.readTimeout=300s"
         - "traefik.http.services.my-php-app.loadbalancer.server.writeTimeout=300s"
-        - "traefik.http.services.my-php-app.loadbalancer.server.idleTimeout=300s"
+        # - "traefik.http.services.my-php-app.loadbalancer.server.idleTimeout=300s"
 
 configs:
   traefik:
