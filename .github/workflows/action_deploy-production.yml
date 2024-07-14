@@ -1,8 +1,13 @@
 name: Production Deployment
+# on:
+#   release:
+#     types:
+#       - released
+
 on:
-  release:
-    types:
-      - released
+  push:
+    branches:
+      - main
 
 ########################################################################
 # 🚨 WARNING: You must set the following secrets in GitHub:
@@ -21,7 +26,7 @@ on:
 
 # 👇 Set these variables to match your application needs. Most of them should work great by default.
 env:
-  DEPLOYMENT_URL_HOSTNAME: 
+  DEPLOYMENT_URL_HOSTNAME:
   DEPLOYMENT_URL: https://
 
 jobs:
@@ -32,7 +37,7 @@ jobs:
       docker-tags: ghcr.io/${{ github.repository }}:${{ github.ref_name }},ghcr.io/${{ github.repository }}:latest
       environment: production # 👈 Make sure you created this environment in GitHub with the secrets above.
     secrets: inherit
-  
+
   deploy:
     needs: build
     runs-on: ubuntu-22.04
@@ -40,9 +45,8 @@ jobs:
       name: production # 👈 Make sure you created this environment in GitHub with the secrets above.
       url: "${{ env.DEPLOYMENT_URL }}"
     steps:
-
       - name: Get project name from repository name.
-        run: | 
+        run: |
           echo "PROJECT_NAME=${GITHUB_REPOSITORY#*/}" >> $GITHUB_ENV
 
       - uses: serversideup/github-action-docker-swarm-deploy@v1
