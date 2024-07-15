@@ -7,6 +7,6 @@ Route::get('/', function () {
 });
 
 Route::get('/ping', function () {
-    console.log("Dummy change, changed session driver to cookie in env");
+    // console.log("Dummy change, changed session driver to cookie in env");
     return response('SERVICE_IS_HEALTHY', 200);
 });
