@@ -7,5 +7,5 @@ Route::get('/', function () {
 });
 
 Route::get('/ping', function () {
-    return response('SERVICE_IS_HEALTHY', 200)
+    return response('SERVICE_IS_HEALTHY', 200);
 });
