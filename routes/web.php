@@ -7,6 +7,6 @@ Route::get('/', function () {
 });
 
 Route::get('/ping', function () {
-    console.log("Dummy change, after changing ENV");
+    console.log("Dummy change, removed env from github secrets");
     return response('SERVICE_IS_HEALTHY', 200);
 });
